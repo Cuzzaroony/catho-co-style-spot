@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ---------------------------------------------------------------
- * Catho n Co — editorial streetwear design system
+ * Catho Clothing — editorial streetwear design system
  * Warm cream paper background, deep ink foreground, ember accent.
  * ------------------------------------------------------------- */
 
@@ -77,7 +77,7 @@
 
 :root {
   --radius: 0.625rem;
-  /* Catho n Co — dark coastal palette: deep ocean ink + bone foreground + sand accent */
+  /* Catho Clothing — dark coastal palette: deep ocean ink + bone foreground + sand accent */
   --background: oklch(0.13 0.018 240);
   --foreground: oklch(0.95 0.012 85);
   --card: oklch(0.17 0.022 240);

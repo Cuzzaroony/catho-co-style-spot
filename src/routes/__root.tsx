@@ -31,10 +31,10 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Catho n Co — Everyday essentials" },
+      { title: "Catho Clothing — Everyday essentials" },
       { name: "description", content: "Heavyweight tees, caps and hoodies. Built heavy, worn often." },
-      { name: "author", content: "Catho n Co" },
-      { property: "og:title", content: "Catho n Co — Everyday essentials" },
+      { name: "author", content: "Catho Clothing" },
+      { property: "og:title", content: "Catho Clothing — Everyday essentials" },
       { property: "og:description", content: "Heavyweight tees, caps and hoodies." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

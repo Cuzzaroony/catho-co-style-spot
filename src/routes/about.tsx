@@ -7,9 +7,9 @@ import bayImage from "@/assets/catherine-hill-bay.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Our Story — Catho n Co" },
+      { title: "Our Story — Catho Clothing" },
       { name: "description", content: "A merch brand born from a love of Catherine Hill Bay, NSW — the oldest village on Lake Macquarie." },
-      { property: "og:title", content: "Our Story — Catho n Co" },
+      { property: "og:title", content: "Our Story — Catho Clothing" },
       { property: "og:description", content: "A merch brand born from a love of Catherine Hill Bay, NSW." },
       { property: "og:image", content: bayImage },
       { name: "twitter:image", content: bayImage },
@@ -28,7 +28,7 @@ function About() {
           For the love of Catho.
         </h1>
         <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-          Catho n Co is a merch brand dedicated to one place: <span className="text-foreground">Catherine Hill Bay, NSW</span> —
+          Catho Clothing is a merch brand dedicated to one place: <span className="text-foreground">Catherine Hill Bay, NSW</span> —
           the sleepy coastal village south of Swansea where the jetty meets the Pacific and time
           slows down. We grew up here, surfed here, watched the sun come up over the headland here.
           This brand is our love letter to it.
