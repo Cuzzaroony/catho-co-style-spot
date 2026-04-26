@@ -25,7 +25,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-t border-border pt-6 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Catho n Co. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Catho Clothing. All rights reserved.</p>
           <p>Made with care.</p>
         </div>
       </div>

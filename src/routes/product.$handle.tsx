@@ -16,8 +16,8 @@ import { useCartStore } from "@/stores/cartStore";
 export const Route = createFileRoute("/product/$handle")({
   head: ({ params }) => ({
     meta: [
-      { title: `${params.handle} — Catho n Co` },
-      { name: "description", content: "Heavyweight essentials by Catho n Co." },
+      { title: `${params.handle} — Catho Clothing` },
+      { name: "description", content: "Heavyweight essentials by Catho Clothing." },
     ],
   }),
   component: ProductDetail,
@@ -114,7 +114,7 @@ function ProductDetail() {
         </div>
         <div className="flex flex-col justify-center">
           <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Catho n Co
+            Catho Clothing
           </p>
           <h1 className="mt-3 font-display text-4xl sm:text-5xl leading-tight">
             {product.title}

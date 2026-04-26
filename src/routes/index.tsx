@@ -11,12 +11,12 @@ import heroImage from "@/assets/hero.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Catho n Co — Everyday essentials" },
+      { title: "Catho Clothing — Everyday essentials" },
       {
         name: "description",
-        content: "Heavyweight tees, caps and hoodies from Catho n Co. Built heavy, worn often.",
+        content: "Heavyweight tees, caps and hoodies from Catho Clothing. Built heavy, worn often.",
       },
-      { property: "og:title", content: "Catho n Co — Everyday essentials" },
+      { property: "og:title", content: "Catho Clothing — Everyday essentials" },
       { property: "og:description", content: "Heavyweight tees, caps and hoodies." },
     ],
   }),
@@ -58,7 +58,7 @@ function Index() {
             </h1>
             <p className="mt-6 max-w-md text-lg text-muted-foreground">
               Heavyweight cotton, considered cuts, and pieces designed to outlast the season.
-              Welcome to Catho n Co.
+              Welcome to Catho Clothing.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full h-12 px-8">
@@ -76,7 +76,7 @@ function Index() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-secondary shadow-[var(--shadow-elegant)]">
               <img
                 src={heroImage}
-                alt="Model wearing Catho n Co black tee at golden hour"
+                alt="Model wearing Catho Clothing black tee at golden hour"
                 width={1600}
                 height={1200}
                 className="h-full w-full object-cover"
@@ -94,7 +94,7 @@ function Index() {
         <div className="flex gap-12 whitespace-nowrap animate-[marquee_30s_linear_infinite] font-display text-2xl">
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i} className="flex items-center gap-12">
-              Catho n Co <span className="text-accent">✦</span> Built heavy{" "}
+              Catho Clothing <span className="text-accent">✦</span> Built heavy{" "}
               <span className="text-accent">✦</span> Worn often <span className="text-accent">✦</span>
             </span>
           ))}

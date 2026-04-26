@@ -14,7 +14,7 @@ export function Header() {
           </Link>
         </nav>
         <Link to="/" className="font-display text-2xl tracking-tight md:absolute md:left-1/2 md:-translate-x-1/2">
-          Catho<span className="text-accent">.</span>n.Co
+          Catho<span className="text-accent">.</span>Clothing
         </Link>
         <div className="flex items-center gap-1">
           <CartDrawer />
