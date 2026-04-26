@@ -77,38 +77,38 @@
 
 :root {
   --radius: 0.625rem;
-  /* Warm paper + deep ink */
-  --background: oklch(0.965 0.018 85);
-  --foreground: oklch(0.18 0.012 70);
-  --card: oklch(0.978 0.014 85);
-  --card-foreground: oklch(0.18 0.012 70);
-  --popover: oklch(0.978 0.014 85);
-  --popover-foreground: oklch(0.18 0.012 70);
-  /* Primary = deep ink */
-  --primary: oklch(0.18 0.012 70);
-  --primary-foreground: oklch(0.965 0.018 85);
-  /* Secondary = warm sand */
-  --secondary: oklch(0.92 0.025 80);
-  --secondary-foreground: oklch(0.18 0.012 70);
-  --muted: oklch(0.92 0.025 80);
-  --muted-foreground: oklch(0.45 0.02 70);
-  /* Accent = ember orange */
-  --accent: oklch(0.68 0.18 45);
-  --accent-foreground: oklch(0.98 0.01 85);
-  --destructive: oklch(0.55 0.22 27);
+  /* Catho n Co — dark coastal palette: deep ocean ink + bone foreground + sand accent */
+  --background: oklch(0.13 0.018 240);
+  --foreground: oklch(0.95 0.012 85);
+  --card: oklch(0.17 0.022 240);
+  --card-foreground: oklch(0.95 0.012 85);
+  --popover: oklch(0.17 0.022 240);
+  --popover-foreground: oklch(0.95 0.012 85);
+  /* Primary = bone (so light buttons on dark bg) */
+  --primary: oklch(0.95 0.012 85);
+  --primary-foreground: oklch(0.13 0.018 240);
+  /* Secondary = midnight surface */
+  --secondary: oklch(0.22 0.025 240);
+  --secondary-foreground: oklch(0.95 0.012 85);
+  --muted: oklch(0.22 0.025 240);
+  --muted-foreground: oklch(0.7 0.02 80);
+  /* Accent = warm sand */
+  --accent: oklch(0.78 0.11 75);
+  --accent-foreground: oklch(0.13 0.018 240);
+  --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(0.98 0.01 85);
-  --border: oklch(0.86 0.025 75);
-  --input: oklch(0.86 0.025 75);
-  --ring: oklch(0.68 0.18 45);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.78 0.11 75);
 
   /* Brand-specific tokens */
-  --ink: oklch(0.18 0.012 70);
-  --paper: oklch(0.965 0.018 85);
-  --ember: oklch(0.68 0.18 45);
-  --gradient-warm: linear-gradient(135deg, oklch(0.965 0.018 85) 0%, oklch(0.92 0.04 70) 100%);
-  --gradient-ember: linear-gradient(135deg, oklch(0.72 0.19 50) 0%, oklch(0.6 0.2 35) 100%);
-  --shadow-elegant: 0 30px 60px -20px oklch(0.18 0.012 70 / 0.25);
-  --shadow-soft: 0 10px 30px -10px oklch(0.18 0.012 70 / 0.15);
+  --ink: oklch(0.13 0.018 240);
+  --paper: oklch(0.95 0.012 85);
+  --ember: oklch(0.78 0.11 75);
+  --gradient-warm: linear-gradient(135deg, oklch(0.13 0.018 240) 0%, oklch(0.2 0.04 250) 100%);
+  --gradient-ember: linear-gradient(135deg, oklch(0.82 0.12 70) 0%, oklch(0.62 0.16 45) 100%);
+  --shadow-elegant: 0 30px 60px -20px oklch(0 0 0 / 0.6);
+  --shadow-soft: 0 10px 30px -10px oklch(0 0 0 / 0.5);
 
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
