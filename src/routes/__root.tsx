@@ -31,13 +31,17 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Catho Clothing — Everyday essentials" },
+      { title: "Catho Clothing" },
       { name: "description", content: "Heavyweight tees, caps and hoodies. Built heavy, worn often." },
-      { name: "author", content: "Catho Clothing" },
-      { property: "og:title", content: "Catho Clothing — Everyday essentials" },
-      { property: "og:description", content: "Heavyweight tees, caps and hoodies." },
+      { name: "author", content: "Catho n Co" },
+      { property: "og:title", content: "Catho Clothing" },
+      { property: "og:description", content: "Heavyweight tees, caps and hoodies. Built heavy, worn often." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Catho Clothing" },
+      { name: "twitter:description", content: "Heavyweight tees, caps and hoodies. Built heavy, worn often." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/33243e03-0723-4924-ab3a-3ef8ce8aacac/id-preview-8c94542c--0deabd92-228a-4c12-a3a9-9dec92258306.lovable.app-1777195720965.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/33243e03-0723-4924-ab3a-3ef8ce8aacac/id-preview-8c94542c--0deabd92-228a-4c12-a3a9-9dec92258306.lovable.app-1777195720965.png" },
     ],
     links: [
       {
