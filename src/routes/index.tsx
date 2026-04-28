@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
       { title: "Catho Clothing — Everyday essentials" },
       {
         name: "description",
-        content: "Heavyweight tees, caps and hoodies from Catho Clothing. Built heavy, worn often.",
+        content: "Heavyweight tees, caps and hoodies from Catho Clothing. Made for slow days.",
       },
       { property: "og:title", content: "Catho Clothing — Everyday essentials" },
       { property: "og:description", content: "Heavyweight tees, caps and hoodies." },
@@ -54,9 +54,9 @@ function Index() {
           <div className="flex flex-col justify-center order-2 lg:order-1">
             <p className="text-xs uppercase tracking-[0.3em] text-accent">Spring drop · 01</p>
             <h1 className="mt-4 font-display text-5xl leading-[0.95] sm:text-7xl lg:text-8xl">
-              Built heavy.
+              Made for
               <br />
-              <span className="italic text-accent">Worn often.</span>
+              <span className="italic text-accent">slow days.</span>
             </h1>
             <p className="mt-6 max-w-md text-lg text-muted-foreground">
               Heavyweight cotton, considered cuts, and pieces designed to outlast the season.
@@ -96,8 +96,8 @@ function Index() {
         <div className="flex gap-12 whitespace-nowrap animate-[marquee_30s_linear_infinite] font-display text-2xl">
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i} className="flex items-center gap-12">
-              Catho Clothing <span className="text-accent">✦</span> Built heavy{" "}
-              <span className="text-accent">✦</span> Worn often <span className="text-accent">✦</span>
+              Catho Clothing <span className="text-accent">✦</span> Made for slow days{" "}
+              <span className="text-accent">✦</span>
             </span>
           ))}
         </div>
