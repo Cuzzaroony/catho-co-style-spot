@@ -6,7 +6,7 @@ export function Footer() {
           <div>
             <p className="font-display text-3xl">Catho<span className="text-accent">.</span>n.Co</p>
             <p className="mt-3 text-sm text-muted-foreground max-w-xs">
-              Everyday essentials, built heavy and worn often.
+              Everyday essentials, made for slow days.
             </p>
           </div>
           <div>
