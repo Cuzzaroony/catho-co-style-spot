@@ -18,6 +18,8 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:title", content: "Catho Clothing — Everyday essentials" },
       { property: "og:description", content: "Heavyweight tees, caps and hoodies." },
+      { property: "og:image", content: heroImage },
+      { name: "twitter:image", content: heroImage },
     ],
   }),
   component: Index,
@@ -73,10 +75,10 @@ function Index() {
             </div>
           </div>
           <div className="relative order-1 lg:order-2">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-secondary shadow-[var(--shadow-elegant)]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-secondary shadow-[var(--shadow-elegant)]">
               <img
                 src={heroImage}
-                alt="Model wearing Catho Clothing black tee at golden hour"
+                alt="Catherine Hill Bay jetty stretching over turquoise water on a clear day"
                 width={1600}
                 height={1200}
                 className="h-full w-full object-cover"
