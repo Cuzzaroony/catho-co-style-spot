@@ -52,7 +52,7 @@ function Index() {
       <section className="relative overflow-hidden">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:py-24 lg:px-8">
           <div className="flex flex-col justify-center order-2 lg:order-1">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent">Spring drop · 01</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-accent"> drop · 01</p>
             <h1 className="mt-4 font-display text-5xl leading-[0.95] sm:text-7xl lg:text-8xl">
               Made for
               <br />
