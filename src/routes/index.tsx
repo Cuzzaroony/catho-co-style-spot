@@ -136,7 +136,7 @@ function Index() {
           <div className="rounded-lg border border-dashed border-border p-12 text-center">
             <p className="font-display text-2xl">No products found</p>
             <p className="mt-2 text-muted-foreground">
-              Tell the chat what product to add and we'll get it live.
+              Tell the chat what product to add and we'll get i live.
             </p>
           </div>
         )}
