@@ -64,7 +64,15 @@ function Index() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full h-12 px-8">
-                <a href="#shop">
+                <a
+                  href="#shop"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .getElementById("shop")
+                      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                >
                   Shop the drop
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
