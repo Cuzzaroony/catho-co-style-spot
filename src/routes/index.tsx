@@ -59,7 +59,7 @@ function Index() {
               <span className="italic text-accent">slow days.</span>
             </h1>
             <p className="mt-6 max-w-md text-lg text-muted-foreground">
-              Heavyweight cotton, considered cuts, and pieces designed to outlast the season.
+              Casual wear made for everyday life by the coast.
               Welcome to Catho Clothing.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
