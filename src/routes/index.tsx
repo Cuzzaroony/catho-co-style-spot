@@ -33,7 +33,20 @@ function Index() {
     storefrontApiRequest(STOREFRONT_QUERY, { first: 12 })
       .then((data) => {
         if (cancelled) return;
-        setProducts(data?.data?.products?.edges ?? []);
+        const edges: ShopifyProduct[] = data?.data?.products?.edges ?? [];
+        const order = [
+          "essential-tee-cream", // Catho Hill Bay Tee — White
+          "catho-jetty-tee", // Catho Jetty Tee
+        ];
+        const sorted = [...edges].sort((a, b) => {
+          const ai = order.indexOf(a.node.handle);
+          const bi = order.indexOf(b.node.handle);
+          if (ai === -1 && bi === -1) return 0;
+          if (ai === -1) return 1;
+          if (bi === -1) return -1;
+          return ai - bi;
+        });
+        setProducts(sorted);
       })
       .catch((err) => {
         console.error(err);
