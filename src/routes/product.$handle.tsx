@@ -28,6 +28,7 @@ function ProductDetail() {
   const [product, setProduct] = useState<ShopifyProduct["node"] | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedVariantId, setSelectedVariantId] = useState<string | null>(null);
+  const [imageIndex, setImageIndex] = useState(0);
   const addItem = useCartStore((s) => s.addItem);
   const isAdding = useCartStore((s) => s.isLoading);
 
@@ -70,7 +71,10 @@ function ProductDetail() {
     );
   }
 
-  const image = product.images.edges[0]?.node;
+  const images = product.images.edges.map((e) => e.node);
+  const image = images[imageIndex] ?? images[0];
+  const hasMultipleImages = images.length > 1;
+  const isWaveCap = product.handle.includes("wave-cap");
   const selectedVariant =
     product.variants.edges.find((v) => v.node.id === selectedVariantId)?.node ??
     product.variants.edges[0].node;
@@ -103,13 +107,51 @@ function ProductDetail() {
         </Link>
       </div>
       <section className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 pb-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
-        <div className="aspect-[4/5] overflow-hidden rounded-xl bg-secondary">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-secondary">
           {image && (
             <img
+              key={image.url}
               src={image.url}
               alt={image.altText ?? product.title}
-              className="h-full w-full object-cover"
+              className={`h-full w-full animate-in fade-in ${
+                isWaveCap ? "object-contain p-12 sm:p-16" : "object-cover"
+              }`}
             />
+          )}
+          {hasMultipleImages && (
+            <>
+              <button
+                type="button"
+                aria-label="Previous image"
+                onClick={() =>
+                  setImageIndex((i) => (i - 1 + images.length) % images.length)
+                }
+                className="absolute left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 backdrop-blur hover:bg-background"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                aria-label="Next image"
+                onClick={() => setImageIndex((i) => (i + 1) % images.length)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 backdrop-blur hover:bg-background"
+              >
+                ›
+              </button>
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
+                {images.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    aria-label={`Show image ${i + 1}`}
+                    onClick={() => setImageIndex(i)}
+                    className={`h-1.5 rounded-full transition-all ${
+                      i === imageIndex ? "w-6 bg-foreground" : "w-1.5 bg-foreground/40"
+                    }`}
+                  />
+                ))}
+              </div>
+            </>
           )}
         </div>
         <div className="flex flex-col justify-center">
@@ -119,6 +161,26 @@ function ProductDetail() {
           <h1 className="mt-3 font-display text-4xl sm:text-5xl leading-tight">
             {product.title}
           </h1>
+          {isWaveCap && hasMultipleImages && (
+            <div className="mt-5 flex gap-2">
+              {["White", "Black"].map((label, i) => {
+                const active = imageIndex === i;
+                return (
+                  <button
+                    key={label}
+                    onClick={() => setImageIndex(i)}
+                    className={`rounded-full border px-5 py-2 text-sm transition-colors ${
+                      active
+                        ? "border-foreground bg-foreground text-background"
+                        : "border-border hover:border-foreground"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+          )}
           <p className="mt-4 text-2xl font-medium">
             {formatPrice(
               selectedVariant.price.amount,
