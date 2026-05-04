@@ -114,7 +114,7 @@ export async function storefrontApiRequest(query: string, variables: Record<stri
   const priceOverrides: Record<string, string> = {
     "catho-jetty-tee": "29.99",
     "wave-cap": "25.00",
-    "catho-wave-hoodie": "69.99",
+    "catho-wave-hoodie": "59.99",
   };
 
   const processNode = (node: any) => {

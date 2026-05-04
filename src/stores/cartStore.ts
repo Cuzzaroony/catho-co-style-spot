@@ -165,7 +165,7 @@ export const useCartStore = create<CartStore>()(
         const priceOverrides: Record<string, string> = {
           "catho-jetty-tee": "29.99",
           "wave-cap": "25.00",
-          "catho-wave-hoodie": "69.99",
+          "catho-wave-hoodie": "59.99",
         };
         const handle = item.product.node.handle;
         const override = Object.entries(priceOverrides).find(([key]) => handle?.includes(key))?.[1];
