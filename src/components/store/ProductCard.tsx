@@ -9,7 +9,7 @@ export function ProductCard({ product }: { product: ShopifyProduct }) {
   const [index, setIndex] = useState(0);
   const hasMultiple = images.length > 1;
   const current = images[index];
-  const isWaveCap = p.handle.includes("wave-cap");
+  const isWaveCap = /wave\s*cap/i.test(p.title) || p.handle.includes("wave-cap");
 
   return (
     <Link
