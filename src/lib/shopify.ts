@@ -109,6 +109,40 @@ export async function storefrontApiRequest(query: string, variables: Record<stri
   if (data.errors) {
     throw new Error(`Shopify error: ${data.errors.map((e: { message: string }) => e.message).join(", ")}`);
   }
+
+  // Override prices as requested by the user
+  const priceOverrides: Record<string, string> = {
+    "catho-jetty-tee": "29.99",
+    "wave-cap": "25.00",
+    "catho-wave-hoodie": "69.99",
+  };
+
+  const processNode = (node: any) => {
+    if (!node) return;
+    const handle = node.handle;
+    const override = Object.entries(priceOverrides).find(([key]) => handle?.includes(key))?.[1];
+    
+    if (override) {
+      if (node.priceRange?.minVariantPrice) {
+        node.priceRange.minVariantPrice.amount = override;
+      }
+      if (node.variants?.edges) {
+        node.variants.edges.forEach((edge: any) => {
+          if (edge.node?.price) {
+            edge.node.price.amount = override;
+          }
+        });
+      }
+    }
+  };
+
+  if (data.data?.products?.edges) {
+    data.data.products.edges.forEach((edge: any) => processNode(edge.node));
+  }
+  if (data.data?.product) {
+    processNode(data.data.product);
+  }
+
   return data;
 }
 

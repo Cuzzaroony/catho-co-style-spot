@@ -160,6 +160,19 @@ export const useCartStore = create<CartStore>()(
 
       addItem: async (item) => {
         const { items, cartId, clearCart } = get();
+
+        // Ensure price overrides are applied to the cart item
+        const priceOverrides: Record<string, string> = {
+          "catho-jetty-tee": "29.99",
+          "wave-cap": "25.00",
+          "catho-wave-hoodie": "69.99",
+        };
+        const handle = item.product.node.handle;
+        const override = Object.entries(priceOverrides).find(([key]) => handle?.includes(key))?.[1];
+        if (override) {
+          item.price.amount = override;
+        }
+
         const existingItem = items.find((i) => i.variantId === item.variantId);
         set({ isLoading: true });
         try {
