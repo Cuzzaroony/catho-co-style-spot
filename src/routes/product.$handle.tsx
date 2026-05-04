@@ -74,7 +74,7 @@ function ProductDetail() {
   const images = product.images.edges.map((e) => e.node);
   const image = images[imageIndex] ?? images[0];
   const hasMultipleImages = images.length > 1;
-  const isWaveCap = product.handle.includes("wave-cap");
+  const isWaveCap = /wave\s*cap/i.test(product.title) || product.handle.includes("wave-cap");
   const selectedVariant =
     product.variants.edges.find((v) => v.node.id === selectedVariantId)?.node ??
     product.variants.edges[0].node;
