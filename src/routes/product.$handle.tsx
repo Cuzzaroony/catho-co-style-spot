@@ -113,9 +113,7 @@ function ProductDetail() {
               key={image.url}
               src={image.url}
               alt={image.altText ?? product.title}
-              className={`h-full w-full animate-in fade-in ${
-                isWaveCap ? "object-contain p-12 sm:p-16" : "object-cover"
-              }`}
+              className="h-full w-full object-cover animate-in fade-in"
             />
           )}
           {hasMultipleImages && (

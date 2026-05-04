@@ -24,9 +24,7 @@ export function ProductCard({ product }: { product: ShopifyProduct }) {
             src={current.url}
             alt={current.altText ?? p.title}
             loading="lazy"
-            className={`h-full w-full transition-transform duration-700 group-hover:scale-105 animate-in fade-in ${
-              isWaveCap ? "object-contain p-10 sm:p-14" : "object-cover"
-            }`}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 animate-in fade-in"
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-ink/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
