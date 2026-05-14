@@ -1,0 +1,15 @@
+# Catho Clothing
+
+> Heavyweight tees, caps and hoodies inspired by Catherine Hill Bay, NSW. Everyday essentials made for slow days by the coast.
+
+Catho Clothing is an Australian merch brand dedicated to Catherine Hill Bay — the heritage coastal village south of Swansea, NSW. We make tees, caps and hoodies for people who love the bay.
+
+## Pages
+- [Shop](/): The full collection — tees, caps and hoodies.
+- [Our Story](/about): The story behind Catho Clothing and Catherine Hill Bay.
+
+## Products
+- [Catho Hill Bay Tee](/product/essential-tee-cream)
+- [Catho Jetty Tee](/product/catho-jetty-tee)
+- [Catho Wave Cap](/product/catho-wave-cap)
+- [Catho Wave Hoodie](/product/catho-wave-hoodie)
