@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Header } from "@/components/store/Header";
 import { Footer } from "@/components/store/Footer";
 import { Button } from "@/components/ui/button";
@@ -14,47 +14,82 @@ import {
 import { useCartStore } from "@/stores/cartStore";
 
 export const Route = createFileRoute("/product/$handle")({
-  head: ({ params }) => ({
-    meta: [
-      { title: `${params.handle} — Catho Clothing` },
-      { name: "description", content: "Heavyweight essentials by Catho Clothing." },
-    ],
-  }),
+  loader: async ({ params }) => {
+    const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle: params.handle });
+    const product = data?.data?.product ?? null;
+    return { product };
+  },
+  head: ({ params, loaderData }) => {
+    const product = loaderData?.product;
+    const url = `https://cathoclothing.lovable.app/product/${params.handle}`;
+    if (!product) {
+      return {
+        meta: [
+          { title: `${params.handle} — Catho Clothing` },
+          { name: "description", content: "Heavyweight essentials by Catho Clothing — tees, caps and hoodies inspired by Catherine Hill Bay, NSW." },
+          { property: "og:url", content: url },
+        ],
+        links: [{ rel: "canonical", href: url }],
+      };
+    }
+    const image = product.images?.edges?.[0]?.node?.url;
+    const price = product.variants?.edges?.[0]?.node?.price;
+    const baseDesc = (product.description || "").trim();
+    const description =
+      baseDesc.length >= 50
+        ? baseDesc.slice(0, 200)
+        : `${product.title} by Catho Clothing — heavyweight essentials inspired by Catherine Hill Bay, NSW. ${baseDesc}`.trim();
+    const title = `${product.title} — Catho Clothing`;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: url },
+        ...(image ? [{ property: "og:image", content: image }, { name: "twitter:image", content: image }] : []),
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: product.title,
+            description: baseDesc || description,
+            image: image ? [image] : undefined,
+            brand: { "@type": "Brand", name: "Catho Clothing" },
+            offers: price
+              ? {
+                  "@type": "Offer",
+                  price: price.amount,
+                  priceCurrency: price.currencyCode,
+                  availability: product.variants?.edges?.some(
+                    (v: { node: { availableForSale: boolean } }) => v.node.availableForSale,
+                  )
+                    ? "https://schema.org/InStock"
+                    : "https://schema.org/OutOfStock",
+                  url,
+                }
+              : undefined,
+          }),
+        },
+      ],
+    };
+  },
   component: ProductDetail,
 });
 
 function ProductDetail() {
-  const { handle } = Route.useParams();
-  const [product, setProduct] = useState<ShopifyProduct["node"] | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [selectedVariantId, setSelectedVariantId] = useState<string | null>(null);
+  const { product } = Route.useLoaderData() as { product: ShopifyProduct["node"] | null };
+  const [selectedVariantId, setSelectedVariantId] = useState<string | null>(
+    product?.variants?.edges?.[0]?.node?.id ?? null,
+  );
   const [imageIndex, setImageIndex] = useState(0);
   const addItem = useCartStore((s) => s.addItem);
   const isAdding = useCartStore((s) => s.isLoading);
-
-  useEffect(() => {
-    setLoading(true);
-    storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle })
-      .then((data) => {
-        const p = data?.data?.product ?? null;
-        setProduct(p);
-        if (p?.variants?.edges?.length) {
-          setSelectedVariantId(p.variants.edges[0].node.id);
-        }
-      })
-      .finally(() => setLoading(false));
-  }, [handle]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background">
-        <Header />
-        <div className="flex items-center justify-center py-32">
-          <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
-        </div>
-      </div>
-    );
-  }
 
   if (!product) {
     return (
@@ -218,8 +253,9 @@ function ProductDetail() {
             disabled={isAdding || !selectedVariant.availableForSale}
             size="lg"
             className="mt-10 rounded-full h-14 text-base"
+            aria-label="Add to bag"
           >
-            {isAdding ? <Loader2 className="h-4 w-4 animate-spin" /> : "Add to bag"}
+            {isAdding ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : "Add to bag"}
           </Button>
 
           <div className="mt-8 grid grid-cols-2 gap-4 border-t border-border pt-6 text-sm text-muted-foreground">

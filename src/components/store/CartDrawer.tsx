@@ -39,7 +39,7 @@ export const CartDrawer = () => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="relative rounded-full">
+        <Button variant="ghost" size="icon" className="relative rounded-full" aria-label={`Open cart${totalItems > 0 ? `, ${totalItems} item${totalItems !== 1 ? "s" : ""}` : ""}`}>
           <ShoppingBag className="h-5 w-5" />
           {totalItems > 0 && (
             <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 flex items-center justify-center text-[10px] bg-accent text-accent-foreground border-0">
@@ -95,6 +95,7 @@ export const CartDrawer = () => {
                           size="icon"
                           className="h-7 w-7"
                           onClick={() => removeItem(item.variantId)}
+                          aria-label={`Remove ${item.product.node.title}`}
                         >
                           <Trash2 className="h-3.5 w-3.5" />
                         </Button>
@@ -104,6 +105,7 @@ export const CartDrawer = () => {
                             size="icon"
                             className="h-7 w-7 rounded-full"
                             onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
+                            aria-label="Decrease quantity"
                           >
                             <Minus className="h-3 w-3" />
                           </Button>
@@ -113,6 +115,7 @@ export const CartDrawer = () => {
                             size="icon"
                             className="h-7 w-7 rounded-full"
                             onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
+                            aria-label="Increase quantity"
                           >
                             <Plus className="h-3 w-3" />
                           </Button>
@@ -136,9 +139,10 @@ export const CartDrawer = () => {
                   className="w-full rounded-full h-12"
                   size="lg"
                   disabled={items.length === 0 || isLoading || isSyncing}
+                  aria-label="Checkout"
                 >
                   {isLoading || isSyncing ? (
-                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
                   ) : (
                     <>
                       Checkout

@@ -11,8 +11,12 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "A merch brand born from a love of Catherine Hill Bay, NSW — the oldest village on Lake Macquarie." },
       { property: "og:title", content: "Our Story — Catho Clothing" },
       { property: "og:description", content: "A merch brand born from a love of Catherine Hill Bay, NSW." },
+      { property: "og:url", content: "https://cathoclothing.lovable.app/about" },
       { property: "og:image", content: bayImage },
       { name: "twitter:image", content: bayImage },
+    ],
+    links: [
+      { rel: "canonical", href: "https://cathoclothing.lovable.app/about" },
     ],
   }),
   component: About,

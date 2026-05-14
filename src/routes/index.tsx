@@ -18,8 +18,12 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:title", content: "Catho Clothing — Everyday essentials" },
       { property: "og:description", content: "Heavyweight tees, caps and hoodies." },
+      { property: "og:url", content: "https://cathoclothing.lovable.app/" },
       { property: "og:image", content: heroImage },
       { name: "twitter:image", content: heroImage },
+    ],
+    links: [
+      { rel: "canonical", href: "https://cathoclothing.lovable.app/" },
     ],
   }),
   component: Index,
